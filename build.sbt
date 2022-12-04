@@ -9,20 +9,19 @@ lazy val testDependencies =
     val scalaTestV = "3.2.14"
 
     val scalaTest = "org.scalatest" %% "scalatest" % scalaTestV % "test"
-    val scalaCheck = "org.scalacheck" %% "scalacheck" % scalaCheckV % "test"
-    val scalaTestPlus = "org.scalatestplus" %% "scalacheck-1-17" % scalaTestPlusV % "test"
   }
 
 lazy val dependencies =
   new {
     val scalaUriV = "4.0.3"
+    val fastParseV = "2.2.2"
+    val parserCombinatorsV = "2.1.1"
 
     val scalaUri = "io.lemonlabs" %% "scala-uri" % scalaUriV
+    val parserCombinators = "org.scala-lang.modules" %% "scala-parser-combinators" % parserCombinatorsV
   }
 
 lazy val commonTestDependencies = Seq(
-  testDependencies.scalaCheck,
-  testDependencies.scalaTestPlus,
   testDependencies.scalaTest
 )
 
@@ -30,7 +29,8 @@ lazy val root = (project in file("."))
   .settings(
     name := "RobotsTxt",
     libraryDependencies ++= commonTestDependencies ++ Seq(
-      dependencies.scalaUri
+      dependencies.scalaUri,
+      dependencies.parserCombinators
     ),
     idePackagePrefix := Some("com.onliner10.robotstxt")
   )
