@@ -15,10 +15,10 @@ lazy val dependencies =
   new {
     val scalaUriV = "4.0.3"
     val fastParseV = "2.2.2"
-    val parserCombinatorsV = "2.1.1"
+    val catsParseV = "0.3.7"
 
     val scalaUri = "io.lemonlabs" %% "scala-uri" % scalaUriV
-    val parserCombinators = "org.scala-lang.modules" %% "scala-parser-combinators" % parserCombinatorsV
+    val catsParse = "org.typelevel" %% "cats-parse" % catsParseV
   }
 
 lazy val commonTestDependencies = Seq(
@@ -30,7 +30,7 @@ lazy val root = (project in file("."))
     name := "RobotsTxt",
     libraryDependencies ++= commonTestDependencies ++ Seq(
       dependencies.scalaUri,
-      dependencies.parserCombinators
+      dependencies.catsParse
     ),
     idePackagePrefix := Some("com.onliner10.robotstxt")
   )

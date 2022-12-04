@@ -12,3 +12,6 @@ target/
 *~
 
 .bsp
+.bloop
+.vscode
+.metals
